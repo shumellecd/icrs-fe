@@ -1,0 +1,145 @@
+<!-- Add/Edit User Modal Component -->
+<div x-data="addEditUserModal()" 
+     @open-add-user.window="openForAdd()" 
+     @open-edit-user.window="openForEdit($event.detail)"
+     @keydown.escape.window="closeModal()">
+  
+  <!-- Backdrop -->
+  <div x-show="isOpen" 
+       x-transition.opacity 
+       class="modal-backdrop fade show user-modal-backdrop" 
+       style="display: none;"></div>
+
+  <!-- Modal Wrapper -->
+  <div x-show="isOpen" 
+       class="modal fade show user-modal-wrapper" 
+       :class="{ 'd-block': isOpen }"
+       tabindex="-1" 
+       style="display: none;"
+       @click.self="closeModal()"
+       data-bs-theme="light">
+    
+    <div class="modal-dialog modal-dialog-centered user-modal-dialog">
+      <div class="modal-content bg-white border-0 shadow">
+        
+        <!-- Modal Header (Minimal Padding) -->
+        <div class="modal-header border-0 pb-0 pt-2 px-3 flex-column align-items-start">
+          <div class="d-flex justify-content-between w-100">
+            <div class="fw-bold text-dark" style="font-size: 0.9rem;" x-text="isEditMode ? 'Edit User' : 'Add New User'"></div>
+            <button type="button" class="btn-close m-0 p-1" style="font-size: 0.6rem;" @click="closeModal()" aria-label="Close"></button>
+          </div>
+          <p class="text-muted mb-0" style="font-size: 0.65rem;" x-text="isEditMode ? 'Modify account details and access for this user.' : 'Create a new E-ICRS account and assign a role.'"></p>
+        </div>
+
+        <!-- Modal Body (Minimal Padding & Margins) -->
+        <div class="modal-body px-3 py-2">
+
+          <!-- Edit Mode: User Summary Card -->
+          <template x-if="isEditMode">
+            <div class="user-summary-card d-flex align-items-center justify-content-between mb-2">
+              <div class="d-flex align-items-center gap-2">
+                <div class="user-initials-circle fw-bold" x-text="getInitials()"></div>
+                <div style="line-height: 1.1;">
+                  <div class="fw-bold text-dark" style="font-size: 0.75rem;" x-text="user.firstName + ' ' + user.lastName"></div>
+                  <div class="text-muted" style="font-size: 0.65rem;" x-text="user.email"></div>
+                </div>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge text-warning bg-warning-subtle fw-semibold" style="font-size: 0.55rem; padding: 0.2em 0.3em;">GOCC</span>
+                <span class="fw-bold text-dark" style="font-size: 0.7rem;" x-text="user.role"></span>
+              </div>
+            </div>
+          </template>
+          
+          <!-- Names Row (Forced 2 columns to prevent stacking height) -->
+          <div class="row g-2 mb-1">
+            <div class="col-6">
+              <label class="form-label fw-bold user-form-label">First Name <span class="text-danger">*</span></label>
+              <input type="text" class="form-control user-form-input" x-model="user.firstName" placeholder="e.g. Maria">
+            </div>
+            <div class="col-6">
+              <label class="form-label fw-bold user-form-label">Last Name <span class="text-danger">*</span></label>
+              <input type="text" class="form-control user-form-input" x-model="user.lastName" placeholder="e.g. Santos">
+            </div>
+          </div>
+          
+          <!-- Email -->
+          <div class="mb-1">
+            <label class="form-label fw-bold user-form-label">Email Address <span class="text-danger" x-show="!isEditMode">*</span></label>
+            <input type="email" class="form-control user-form-input" x-model="user.email" placeholder="e.g. m.santos@gcg.gov.ph" :disabled="isEditMode">
+            <div class="form-text user-helper-text" x-text="isEditMode ? 'Email cannot be changed after account creation.' : 'Use an official government email.'"></div>
+          </div>
+          
+          <!-- Role -->
+          <div class="mb-1">
+            <label class="form-label fw-bold user-form-label">Role <span class="text-danger">*</span></label>
+            <select class="form-select user-form-select" x-model="user.role">
+              <option value="" disabled>Select a role...</option>
+              <option value="Encoder">GOCC Encoder</option>
+              <option value="Representative">GOCC Representative</option>
+              <option value="Approver">Approver</option>
+              <option value="Viewer">Viewer</option>
+            </select>
+          </div>
+          
+          <!-- GOCC / Agency -->
+          <div class="mb-1">
+            <label class="form-label fw-bold user-form-label">
+              GOCC / Agency <span x-show="isEditMode">Assignment <span class="text-danger">*</span></span>
+            </label>
+            <select class="form-select user-form-select" x-model="user.agency">
+              <option value="" disabled>Select GOCC...</option>
+              <option value="Dept. of Finance">Dept. of Finance</option>
+              <option value="PhilHealth">PhilHealth</option>
+              <option value="SSS">Social Security System</option>
+            </select>
+            <div class="form-text user-helper-text" x-text="isEditMode ? 'Only applicable when Role is set to GOCC Encoder.' : 'Only required for Encoder and Representative roles.'"></div>
+          </div>
+
+          <!-- Edit Mode: Account Status Toggle -->
+          <template x-if="isEditMode">
+            <div class="mt-2">
+              <label class="form-label fw-bold user-form-label mb-0">Account Status</label>
+              <div class="user-status-card d-flex align-items-center justify-content-between mt-1">
+                <div style="line-height: 1.1;">
+                  <div class="fw-bold text-dark" style="font-size: 0.75rem;" x-text="user.isActive ? 'Account is currently Active' : 'Account is currently Inactive'"></div>
+                  <div class="text-muted" style="font-size: 0.65rem;">Toggle to activate or deactivate access</div>
+                </div>
+                <div class="d-flex align-items-center gap-1">
+                  <span class="fw-bold" style="font-size: 0.7rem;" :class="user.isActive ? 'text-dark' : 'text-muted'" x-text="user.isActive ? 'Active' : 'Inactive'"></span>
+                  <div class="form-check form-switch mb-0 ms-1">
+                    <input class="form-check-input user-status-toggle cursor-pointer m-0" type="checkbox" role="switch" x-model="user.isActive">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="modal-footer border-0 px-3 pb-2 pt-0 d-flex" :class="isEditMode ? 'justify-content-between' : 'justify-content-end'">
+          
+          <!-- Deactivate Button (Edit Mode Only) -->
+          <template x-if="isEditMode">
+            <button type="button" class="btn btn-outline-danger fw-bold px-2 py-1 d-flex align-items-center gap-1 btn-user-action">
+              <span class="material-icons" style="font-size: 0.8rem;">block</span> Deactivate
+            </button>
+          </template>
+
+          <div class="d-flex gap-2">
+            <button type="button" class="btn btn-outline-secondary fw-bold px-2 py-1 btn-user-action btn-user-cancel" @click="closeModal()">CANCEL</button>
+            <button type="button" class="btn text-white fw-bold px-2 py-1 d-flex align-items-center gap-1 btn-user-action btn-user-submit" @click="submitUser()">
+              <template x-if="!isEditMode">
+                <span class="material-icons" style="font-size: 0.8rem;">person_add</span>
+              </template>
+              <span x-text="isEditMode ? 'SAVE CHANGES' : 'ADD USER'"></span>
+            </button>
+          </div>
+
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

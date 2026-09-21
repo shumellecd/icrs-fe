@@ -1,0 +1,11 @@
+/* Page-specific styles for index.html (home) only. */
+.hero-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hero-links a {
+  color: var(--accent);
+  font-size: 0.95rem;
+}

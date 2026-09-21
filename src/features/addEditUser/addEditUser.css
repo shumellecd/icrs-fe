@@ -1,0 +1,135 @@
+.user-modal-backdrop {
+    z-index: 1040;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.user-modal-wrapper {
+    z-index: 1050;
+}
+
+.user-modal-dialog {
+    max-width: 480px; /* Constrained width */
+}
+
+/* --- Form Elements --- */
+.user-form-label {
+    color: #1a2233;
+    font-size: 0.65rem; /* Micro labels */
+    letter-spacing: 0.2px;
+    margin-bottom: 0.1rem; /* Micro margins */
+}
+
+.user-form-input,
+.user-form-select {
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    color: #2a3441;
+    padding: 0.25rem 0.5rem; /* Heavily compressed height */
+    font-size: 0.75rem;       /* Smallest legible input text */
+}
+
+.user-form-input::placeholder {
+    color: #9aa0a6;
+}
+
+.user-form-input:focus,
+.user-form-select:focus {
+    border-color: #1a3673;
+    box-shadow: 0 0 0 0.15rem rgba(26, 54, 115, 0.15);
+}
+
+.user-form-input:disabled {
+    background-color: #f8f9fa;
+    color: #8f9bb3;
+    cursor: not-allowed;
+    border-color: #e8eaed;
+}
+
+.user-helper-text {
+    font-size: 0.6rem; /* Micro helper text */
+    color: #70757a;
+    margin-top: 0.1rem;
+    margin-bottom: 0;
+}
+
+/* --- Edit Mode Components --- */
+.user-summary-card {
+    background-color: #f8f9fa;
+    border: 1px solid #e8eaed;
+    border-radius: 4px;
+    padding: 0.35rem 0.6rem; /* Squeezed padding */
+}
+
+.user-initials-circle {
+    width: 24px;           /* Micro avatar */
+    height: 24px;
+    background-color: #e8eaf6;
+    color: #1a3673;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+}
+
+.user-status-card {
+    background-color: #f8f9fa;
+    border: 1px solid #e8eaed;
+    border-radius: 4px;
+    padding: 0.35rem 0.6rem;  /* Squeezed padding */
+}
+
+.user-status-toggle {
+    width: 1.8em;
+    height: 0.9em;
+}
+
+.user-status-toggle:checked {
+    background-color: #1a3673;
+    border-color: #1a3673;
+}
+
+/* --- Buttons --- */
+.btn-user-action {
+    font-size: 0.7rem; /* Smallest legible button text */
+}
+
+.btn-user-cancel {
+    color: #1a3673;
+    border-color: #1a3673;
+    background-color: transparent;
+}
+
+.btn-user-cancel:hover {
+    background-color: #f8f9fa;
+    color: #1a3673;
+}
+
+.btn-user-submit {
+    background-color: #1a3673;
+    border: none;
+}
+
+.btn-user-submit:hover,
+.btn-user-submit:focus {
+    background-color: #11244d;
+}
+
+.btn-user-deactivate {
+    color: #d32f2f;
+    border-color: #d32f2f;
+    background-color: transparent;
+}
+
+.btn-user-deactivate:hover {
+    background-color: #ffebee;
+    color: #d32f2f;
+}
+
+.mb-3 {
+    margin-bottom: 0.75rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 1 rem !important;
+}

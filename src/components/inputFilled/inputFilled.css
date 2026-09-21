@@ -1,0 +1,23 @@
+/* Filled input variant — solid light-gray fill instead of Bootstrap's
+   default white background, e.g. for a form on a white card where an
+   outlined input alone wouldn't read as an input. Layer over
+   .form-control/.form-select, don't replace them.
+   Usage: <input class="form-control form-control-filled">
+          <select class="form-select form-select-filled">...</select> */
+.form-control-filled,
+.form-select-filled {
+  background-color: #f4f5f9;
+  border: 1px solid #eef0f6;
+  color: #1a1f36;
+}
+
+.form-control-filled::placeholder {
+  color: #8b92aa;
+}
+
+.form-control-filled:focus,
+.form-select-filled:focus {
+  background-color: #ffffff;
+  border-color: #1e3a8a;
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.08);
+}

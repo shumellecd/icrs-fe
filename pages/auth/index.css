@@ -1,0 +1,98 @@
+/* Page-specific layout for pages/auth/index.html */
+
+.auth-page {
+  background-color: #eef0f4;
+  min-height: 100vh;
+}
+
+.auth-card-container {
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.auth-sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.auth-gold-divider {
+  width: 40px;
+  height: 3px;
+  background: #f5c518;
+  margin: 10px auto 16px;
+  border-radius: 2px;
+}
+
+.auth-act-notice {
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.auth-section-title {
+  font-size: 1.35rem;
+}
+
+.auth-btn-primary {
+  background-color: #1e3a8a;
+  border-color: #1e3a8a;
+}
+
+.auth-btn-primary:hover,
+.auth-btn-primary:focus {
+  background-color: #162b68;
+  border-color: #162b68;
+}
+
+.auth-btn-outline {
+  border-color: #1e3a8a;
+  color: #1e3a8a;
+}
+
+.auth-text-link {
+  color: #1e3a8a;
+}
+
+.auth-divider-text {
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+.auth-alert-text {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #0d1f4e;
+}
+
+.auth-status-badge {
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+}
+
+.auth-status-dots {
+  width: 20px;
+  height: 20px;
+  font-size: 10px;
+}
+
+.auth-privacy-box {
+  font-size: 11.5px;
+  line-height: 1.6;
+}
+
+.auth-section-header {
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+.auth-warning-badge {
+  background: #fff3e0;
+  color: #c07000;
+}
+
+.auth-status-box {
+  background: #fafbfd;
+  border-color: #e2e8f0;
+}

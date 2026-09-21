@@ -1,0 +1,44 @@
+<!-- ========================================== -->
+  <!-- MODAL DIALOGS                              -->
+  <!-- ========================================== -->
+
+<!-- Modal: Logout Confirmation -->
+<div x-data="logoutModal()" 
+     @open-logout.window="openModal()" 
+     @keydown.escape.window="closeModal()">
+  
+  <!-- Backdrop -->
+  <div x-show="open" 
+       x-transition.opacity 
+       class="modal-backdrop fade show logout-backdrop" 
+       style="display: none;"></div>
+
+  <!-- Modal Wrapper -->
+  <div x-show="open" 
+       class="modal fade show logout-modal-wrapper" 
+       :class="{ 'd-block': open }"
+       tabindex="-1" 
+       style="display: none;"
+       @click.self="closeModal()"
+       data-bs-theme="light">
+    <div class="modal-dialog modal-dialog-centered logout-modal-dialog">
+      <div class="modal-content bg-white border-0 shadow text-center p-4">
+        <div class="modal-body p-4">
+          
+          <svg viewBox="0 0 24 24" class="logout-icon">
+            <use href="#icon-user"></use>
+          </svg>
+          
+          <h4 class="fw-bold mb-2 logout-title">Logout Current User</h4>
+          <p class="mb-4 logout-text">Are you sure you want to logout?</p>
+          
+          <div class="d-flex justify-content-center gap-3 mt-2">
+            <button type="button" class="btn px-4 py-2 text-white fw-medium btn-logout-cancel" @click="closeModal()">return</button>
+            <button type="button" class="btn px-4 py-2 text-white fw-medium btn-logout-confirm" @click="confirmLogout()">logout</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

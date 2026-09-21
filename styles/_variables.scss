@@ -1,0 +1,37 @@
+// Bootstrap 5 variable overrides — GCG (Governance Commission for GOCCs)
+// brand tokens for ICRS. Must be set before
+// `@import "bootstrap/scss/bootstrap"` in main.scss.
+
+@use "sass:color";
+
+// GCG brand colors that aren't native Bootstrap variables, kept alongside
+// the Bootstrap overrides below so components can reference the exact
+// brand hex without redefining it.
+$gcg-navy: #1a1f36;
+$gcg-gold: #f5c518;
+
+$body-bg: #eef0f4;
+$body-color: $gcg-navy;
+$border-color: #d4d8e8;
+
+$primary: #1e3a8a;
+$danger: #c0392b;
+$secondary: #8b92aa;
+
+$card-border-color: $border-color;
+$card-border-radius: 6px;
+
+$link-color: $primary;
+$link-hover-color: color.adjust($primary, $lightness: -10%);
+
+$font-family-base: 'Roboto', sans-serif;
+
+// Focus ring used by inputs/selects — matches the mockups'
+// `box-shadow: 0 0 0 3px rgba(30, 58, 138, .08)` on focus.
+$input-focus-border-color: $primary;
+$input-focus-box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.08);
+
+// Ribbon-style nav tabs (active tab flips to a white panel, gold underline
+// applied in navTabs.css) — see src/components/navTabs.
+$nav-tabs-link-active-color: $primary;
+$nav-tabs-link-active-bg: #fff;

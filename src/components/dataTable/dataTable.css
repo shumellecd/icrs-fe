@@ -1,0 +1,125 @@
+/* ==========================================================================
+   Search, Filter & Sort Component Styles
+   ========================================================================== */
+
+/* 1. Pill / Segment Selector (e.g. Years or Status tabs) */
+.pill-group {
+  display: inline-flex;
+  background: #0f1624;
+  border-radius: 6px;
+  padding: 3px;
+  gap: 4px;
+}
+
+.pill-btn {
+  border: 0;
+  background: transparent;
+  color: #94a3b8;
+  padding: 6px 16px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.pill-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.pill-btn.active {
+  background: #f59e0b;
+  color: #111827;
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* 2. Filter & Search Controls */
+.filter-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.filter-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.filter-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.filter-icon {
+  position: absolute;
+  left: 12px;
+  color: #64748b;
+  font-size: 15px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.filter-select,
+.filter-search-input {
+  width: 100%;
+  padding: 8px 12px 8px 36px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #1e293b;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.filter-select {
+  padding-right: 32px;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%2364748b' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px 10px;
+  cursor: pointer;
+}
+
+.filter-select:focus,
+.filter-search-input:focus {
+  border-color: #3b82f6;
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  border: 0;
+  color: #94a3b8;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* 3. Sortable Table Headers */
+.table thead th.sortable {
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: background-color 0.15s ease;
+}
+
+.table thead th.sortable:hover {
+  background-color: #f1f5f9;
+  color: #1e293b;
+}

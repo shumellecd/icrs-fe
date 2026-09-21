@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+
+# Compiled from styles/*.scss — run `npm run scss` to regenerate
+styles/main.css
+styles/main.css.map
+styles/main.css
+
+.env

@@ -1,0 +1,74 @@
+/* Modal/PopUp — generic backdrop + dialog shell. Content-agnostic: fill
+   .modal-gcg-body/.modal-gcg-footer with whatever a specific feature needs.
+   Feature-specific modals (add/edit user, GOCC, logout confirm, etc.) live
+   in src/features/ and can reuse these classes rather than redefining
+   their own backdrop/dialog CSS. */
+.modal-gcg-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.5);
+  z-index: 1050;
+}
+
+.modal-gcg-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 1051;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.modal-gcg-content {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  max-width: 480px;
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+}
+
+.modal-gcg-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 20px;
+  border-bottom: 1px solid #d4d8e8;
+}
+
+.modal-gcg-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1f36;
+  margin: 0;
+}
+
+.modal-gcg-close {
+  background: transparent;
+  border: 0;
+  color: #8b92aa;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.modal-gcg-close:hover {
+  color: #1a1f36;
+}
+
+.modal-gcg-body {
+  padding: 20px;
+}
+
+.modal-gcg-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 20px;
+  border-top: 1px solid #d4d8e8;
+}
