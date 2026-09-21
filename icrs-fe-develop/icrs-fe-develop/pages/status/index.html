@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Status — Alpine FE Boilerplate</title>
+  <meta name="description" content="GitHub status demo — a third-party API called through the BFF instead of directly from the browser." />
+  <meta name="theme-color" content="#0b0d12" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Status — Alpine FE Boilerplate" />
+  <meta property="og:description" content="GitHub status demo — a third-party API called through the BFF instead of directly from the browser." />
+  <meta property="og:image" content="../../public/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="../../public/favicon.svg" />
+  <link rel="stylesheet" href="../../styles/main.css" />
+  <link rel="stylesheet" href="../../src/components/githubStatus/githubStatus.css" />
+  <link rel="stylesheet" href="./index.css" />
+</head>
+<body>
+  <div class="app">
+    <nav class="nav">
+      <a href="../../index.html">Home</a>
+      <a href="../dashboard/index.html">Dashboard</a>
+      <a href="../users/index.html">Users</a>
+      <a href="../orders/index.html">Orders</a>
+      <a href="./index.html" aria-current="page">Status</a>
+    </nav>
+
+    <header>
+      <h1>Status</h1>
+      <p class="subtitle">A third-party API (isitdownstatus.com) called through the BFF — the browser never sees its URL.</p>
+    </header>
+
+    <div class="card" x-data="githubStatus">
+      <div class="card-body">
+        <div class="d-flex align-items-center gap-2" x-show="loading">
+          <div class="spinner-border spinner-border-sm text-primary" role="status"></div>
+          <span>Loading...</span>
+        </div>
+        <div class="alert alert-danger mb-0" x-show="error" x-text="error"></div>
+        <template x-if="!loading && !error && status">
+          <div>
+            <div class="d-flex align-items-center gap-2">
+              <strong x-text="status.name"></strong>
+              <span
+                class="badge rounded-pill"
+                :class="status.status === 'operational' ? 'text-bg-success' : 'text-bg-danger'"
+                x-text="status.status"
+              ></span>
+            </div>
+            <p class="text-secondary mb-0 mt-2">Updated <span x-text="status.updated_at"></span></p>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../../src/core/app.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"></script>
+</body>
+</html>

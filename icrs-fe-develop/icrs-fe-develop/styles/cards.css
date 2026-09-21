@@ -1,0 +1,52 @@
+.card-hero {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(360px, 1fr);
+  overflow: hidden;
+}
+
+.card-hero-brand {
+  background: linear-gradient(180deg, #29489c 0%, #1e3a8a 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 42px;
+  text-align: center;
+}
+
+.card-hero-logo {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 20px;
+  object-fit: contain;
+}
+
+.card-hero-title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.3px;
+  margin: 0;
+}
+
+.card-hero-accent {
+  color: #f5c518;
+}
+
+.card-hero-copy {
+  margin-top: 16px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 768px) {
+  .card-hero {
+    grid-template-columns: 1fr;
+  }
+  .card-hero-brand {
+    min-height: 260px;
+    padding: 28px;
+  }
+}

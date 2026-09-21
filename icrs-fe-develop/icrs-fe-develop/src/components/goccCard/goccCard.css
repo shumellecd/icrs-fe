@@ -1,0 +1,198 @@
+/* ==========================================================================
+   GOCC Card (Add & Edit Form Modal / Container) Component Styles
+   Follows GCG ICRS Design Guidelines
+   ========================================================================== */
+
+/* 1. Modal Overlay & Container */
+.gocc-card-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.6);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.gocc-card {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  max-width: 580px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+/* 2. Header */
+.gocc-card-header {
+  background: #141c2e;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #1e293b;
+}
+
+.gocc-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gocc-card-title i {
+  color: #f59e0b;
+}
+
+.gocc-card-close {
+  background: transparent;
+  border: 0;
+  color: #94a3b8;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: color 0.15s ease;
+}
+
+.gocc-card-close:hover {
+  color: #ffffff;
+}
+
+/* 3. Body & Form Controls */
+.gocc-card-body {
+  padding: 24px;
+}
+
+.gocc-form-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #475569;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.gocc-form-req {
+  color: #dc2626;
+}
+
+.gocc-form-input,
+.gocc-form-select {
+  width: 100%;
+  padding: 9px 12px;
+  font-size: 13.5px;
+  color: #1e293b;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.gocc-form-input:focus,
+.gocc-form-select:focus {
+  border-color: #1e40af;
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.15);
+}
+
+.gocc-form-input.is-invalid,
+.gocc-form-select.is-invalid {
+  border-color: #dc2626;
+}
+
+.gocc-form-error {
+  font-size: 12px;
+  color: #dc2626;
+  margin-top: 4px;
+}
+
+/* 4. Agency Badge & Status Pill Styles (From Screenshot) */
+.badge-agency {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+  font-weight: 700;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+
+.badge-agency-gcg {
+  background-color: #e0e7ff;
+  color: #3730a3;
+  border-color: #c7d2fe;
+}
+
+.badge-agency-dof {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border-color: #a7f3d0;
+}
+
+.badge-agency-dbm {
+  background-color: #fffbeb;
+  color: #92400e;
+  border-color: #fde68a;
+}
+
+.badge-status-active {
+  background-color: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+  font-weight: 600;
+  font-size: 11.5px;
+  padding: 3px 10px;
+  border-radius: 9999px;
+}
+
+.badge-status-inactive {
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  font-weight: 600;
+  font-size: 11.5px;
+  padding: 3px 10px;
+  border-radius: 9999px;
+}
+
+/* 5. Footer Actions */
+.gocc-card-footer {
+  background: #f8fafc;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.btn-add-gocc {
+  background: #141c2e;
+  color: #ffffff;
+  border: 0;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.15s ease;
+}
+
+.btn-add-gocc:hover {
+  background: #1e293b;
+  color: #ffffff;
+}

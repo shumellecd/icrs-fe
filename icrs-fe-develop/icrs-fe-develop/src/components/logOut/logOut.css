@@ -1,0 +1,55 @@
+/* --- Modal Overlays & Placement --- */
+.logout-backdrop {
+    z-index: 99990;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.logout-modal-wrapper {
+    z-index: 99999;
+}
+
+.logout-modal-dialog {
+    max-width: 700px;
+}
+
+/* --- Typography & Icons --- */
+.logout-icon {
+    width: 76px;
+    height: 76px;
+    stroke: #2a3441;
+    fill: none;
+    stroke-width: 2;
+    margin-bottom: 1.5rem;
+}
+
+.logout-title {
+    color: #2a3441;
+}
+
+.logout-text {
+    color: #7d879c;
+    font-size: 0.95rem;
+}
+
+/* --- Buttons --- */
+.btn-logout-cancel {
+    background-color: #5b657e;
+    border-radius: 4px;
+}
+
+.btn-logout-cancel:hover,
+.btn-logout-cancel:focus {
+    background-color: #4a5369;
+    color: #ffffff;
+}
+
+.btn-logout-confirm {
+    background-color: #232d3f;
+    border-radius: 4px;
+}
+
+.btn-logout-confirm:hover,
+.btn-logout-confirm:focus {
+    background-color: #171d29;
+    color: #ffffff;
+}
